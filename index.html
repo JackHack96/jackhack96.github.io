@@ -49,6 +49,9 @@
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#education">Educational and career</a>
       </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#publications">Publications</a>
+      </li>
       <!-- <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#contact">Contact</a>
       </li> -->
@@ -76,11 +79,6 @@
         <li class="list-inline-item">
           <a class="rounded-circle" href="https://linkedin.com/in/matteo-iervasi">
             <i class="fab fa-3x fa-linkedin"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="rounded-circle" href="https://t.me/Ierva">
-            <i class="fab fa-3x fa-telegram"></i>
           </a>
         </li>
         <li class="list-inline-item">
@@ -134,7 +132,7 @@
                 I also enjoy troubleshooting and repairing home appliances, desktop workstations, laptops, and smartphones.
               </p>
               <p>
-                You can find the latest version of my CV on my <a href="https://github.com/JackHack96/CV">GitHub repository</a>.
+                You can always view the latest version of my CV <a href="https://github.com/JackHack96/CV/releases/download/latest/cv_eng.pdf">here</a>.
               </p>
             </div>
             <div class="col-sm-4">
@@ -152,116 +150,19 @@
       <div class="row">
         <div class="col-lg-12">
           <h3 class="text-center">EDUCATIONAL AND CAREER</h3>
-          <ul class="timeline">
-            <li>
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/messedaglia.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2015</h4>
-                  <h4 class="subheading">High school diploma</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Obtained a diploma in scientific studies at <a href="https://www.messedaglia.gov.it/">A.
-                      Messedaglia</a>, with a valutation of 87/100.
-                  </p>
-                </div>
-              </div>
-              <div class="line"></div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/wine.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2017</h4>
-                  <h4 class="subheading">Internship at Sordato S.r.l.</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Internship at <a href="http://www.sordato.it/">Sordato S.r.l</a> for developing an automated
-                    management system for wine fermentation machines.
-                  </p>
-                </div>
-              </div>
-              <div class="line"></div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/univr.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2018</h4>
-                  <h4 class="subheading">Bachelor degree</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Obtained a bachelor degree in computer science at <a href="https://www.univr.it/">University of
-                      Verona</a>.
-                  </p>
-                </div>
-              </div>
-              <div class="line"></div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/univr.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2020</h4>
-                  <h4 class="subheading">Master degree in Embedded Systems at University of Verona</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Obtained master degree of Computer Science and Engineering at <a
-                      href="https://www.univr.it/">University
-                      of Verona</a>, with Embedded Systems specialization.
-                  </p>
-                </div>
-              </div>
-              <div class="line"></div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/edalab.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2020</h4>
-                  <h4 class="subheading">Firmware engineer</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Full time job as a firmware developer at <a
-                    href="https://edalab.it/">EDALab S.r.L.</a>.
-                  </p>
-                </div>
-              </div>
-              <div class="line"></div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="img-circle img-fluid" src="img/uis.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2024</h4>
-                  <h4 class="subheading">Ph.D. student at University of Stavanger, Norway</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    Currently a Ph.D. student at <a href="https://www.uis.no/">University of Stavanger</a>,
-                    performing research on the usage of AI for Active and Assisted Living (AAL) systems.
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <ul class="timeline" id="education-timeline"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="content-section" id="publications">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="text-center">PUBLICATIONS</h3>
+          <div id="publications-list" class="publications-list"></div>
         </div>
       </div>
     </div>
@@ -290,6 +191,8 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/stylish-portfolio.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="js/content-renderer.js"></script>
 
 </body>
 
