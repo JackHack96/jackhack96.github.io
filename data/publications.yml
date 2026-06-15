@@ -4,3 +4,8 @@ items:
     authors: "M. Iervasi, J. Maple-Grødem, L. Borzì, G.W. Alves, T. Eftestøl, F. Demrozi"
     venue: "IEEE Access"
     link: "https://doi.org/10.1109/ACCESS.2025.3647133"
+  - year: 2026
+    title: "A Multi-Sensor Approach for Soft Labeling in Human Activity Recognition Domain"
+    authors: "M. Iervasi, C. Turetta, F. Demrozi, G. Pravadelli"
+    venue: "DATE 2026"
+    link: "https://doi.org/10.23919/DATE69613.2026.11539191"
