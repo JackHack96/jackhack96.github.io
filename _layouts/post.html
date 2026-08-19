@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<section class="content-section" id="post">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <article class="blog-post">
+          <h2 class="post-title">{{ page.title }}</h2>
+          <p class="post-meta text-muted">
+            {{ page.date | date: "%B %-d, %Y" }}
+          </p>
+          <div class="post-content">
+            {{ content }}
+          </div>
+        </article>
+        <p class="post-back"><a href="{{ '/blog/' | relative_url }}">&larr; Back to all posts</a></p>
+      </div>
+    </div>
+  </div>
+</section>

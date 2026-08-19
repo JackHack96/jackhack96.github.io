@@ -1,0 +1,30 @@
+---
+layout: default
+title: Blog
+description: Notes on firmware, embedded systems, and AAL research
+permalink: /blog/
+---
+
+<section class="content-section" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h3 class="text-center">PERSONAL BLOG</h3>
+        <div class="post-list">
+          {% if site.posts.size == 0 %}
+          <p class="text-muted">No posts yet.</p>
+          {% endif %}
+          {% for post in site.posts %}
+          <article class="post-list-item">
+            <p class="post-list-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            <h4 class="post-list-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+            {% if post.excerpt %}
+            <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

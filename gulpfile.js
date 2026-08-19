@@ -1,8 +1,8 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
+var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
@@ -18,83 +18,72 @@ var banner = ['/*!\n',
 ].join('');
 
 // Copy third party libraries from /node_modules into /vendor
-gulp.task('vendor', function() {
+function vendor(done) {
 
   // Bootstrap
   gulp.src([
-      './node_modules/bootstrap/dist/**/*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
-    ])
-    .pipe(gulp.dest('./vendor/bootstrap'))
+      './node_modules/bootstrap/dist/css/bootstrap.min.css',
+      './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+    ], { base: './node_modules/bootstrap/dist' })
+    .pipe(gulp.dest('./vendor/bootstrap'));
 
   // Font Awesome 5
   gulp.src([
-      './node_modules/@fortawesome/**/*'
-    ])
-    .pipe(gulp.dest('./vendor'))
+      './node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+      './node_modules/@fortawesome/fontawesome-free/webfonts/**/*',
+      './node_modules/@fortawesome/fontawesome-free/LICENSE.txt'
+    ], { base: './node_modules/@fortawesome/fontawesome-free' })
+    .pipe(gulp.dest('./vendor/fontawesome-free'));
 
   // jQuery
-  gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery'))
+  gulp.src('./node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('./vendor/jquery'));
 
   // jQuery Easing
-  gulp.src([
-      './node_modules/jquery.easing/*.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery-easing'))
+  gulp.src('./node_modules/jquery.easing/jquery.easing.min.js')
+    .pipe(gulp.dest('./vendor/jquery-easing'));
 
   // Simple Line Icons
-  gulp.src([
-      './node_modules/simple-line-icons/fonts/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/fonts'))
+  gulp.src('./node_modules/simple-line-icons/fonts/**')
+    .pipe(gulp.dest('./vendor/simple-line-icons/fonts'));
 
-  gulp.src([
-      './node_modules/simple-line-icons/css/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/css'))
+  gulp.src('./node_modules/simple-line-icons/css/simple-line-icons.css')
+    .pipe(gulp.dest('./vendor/simple-line-icons/css'));
 
-});
+  done();
+}
 
 // Compile SCSS
-gulp.task('css:compile', function() {
+function cssCompile() {
   return gulp.src('./scss/**/*.scss')
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(header(banner, {
       pkg: pkg
     }))
-    .pipe(gulp.dest('./css'))
-});
+    .pipe(gulp.dest('./css'));
+}
 
-// Minify CSS
-gulp.task('css:minify', ['css:compile'], function() {
-  return gulp.src([
-      './css/*.css',
-      '!./css/*.min.css'
-    ])
+// Minify CSS (only the Sass-compiled output; hand-written css/*.css files
+// like timeline.css and blog.css are committed as-is and linked directly)
+function cssMinify() {
+  return gulp.src('./css/stylish-portfolio.css')
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
     .pipe(gulp.dest('./css'))
     .pipe(browserSync.stream());
-});
+}
 
-// CSS
-gulp.task('css', ['css:compile', 'css:minify']);
+var css = gulp.series(cssCompile, cssMinify);
 
 // Minify JavaScript
-gulp.task('js:minify', function() {
+function jsMinify() {
   return gulp.src([
       './js/*.js',
       '!./js/*.min.js'
@@ -108,26 +97,32 @@ gulp.task('js:minify', function() {
     }))
     .pipe(gulp.dest('./js'))
     .pipe(browserSync.stream());
-});
+}
 
-// JS
-gulp.task('js', ['js:minify']);
-
-// Default task
-gulp.task('default', ['css', 'js', 'vendor']);
+var js = gulp.series(jsMinify);
 
 // Configure the browserSync task
-gulp.task('browserSync', function() {
+function serve(done) {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: './'
     }
   });
-});
+  done();
+}
 
-// Dev task
-gulp.task('dev', ['css', 'js', 'browserSync'], function() {
-  gulp.watch('./scss/*.scss', ['css']);
-  gulp.watch('./js/*.js', ['js']);
-  gulp.watch('./*.html', browserSync.reload);
-});
+function watchFiles() {
+  gulp.watch('./scss/**/*.scss', css);
+  gulp.watch('./js/*.js', js);
+  gulp.watch('./*.html').on('change', browserSync.reload);
+}
+
+var build = gulp.series(css, js, vendor);
+var dev = gulp.series(css, js, serve, watchFiles);
+
+exports.vendor = vendor;
+exports.css = css;
+exports.js = js;
+exports.build = build;
+exports.dev = dev;
+exports.default = build;

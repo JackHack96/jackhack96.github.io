@@ -1,0 +1,36 @@
+title: Matteo Iervasi
+description: Personal website of Matteo Iervasi
+author: Matteo Iervasi
+url: "https://matteoiervasi.it"
+baseurl: ""
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# GitHub Pages auto-enables extra plugins (readme-index, titles-from-headings, etc.)
+# that would otherwise turn vendor/**/README.md files into published pages.
+readme_index:
+  enabled: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .bundle-gems
+  - .bundle
+  - gulpfile.js
+  - node_modules
+  - scss
+  - README.md
+  - LICENSE
