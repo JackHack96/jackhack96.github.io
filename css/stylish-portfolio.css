@@ -44,6 +44,31 @@ h6 {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.post-content p {
+  text-align: justify;
+  text-justify: inter-word;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.post-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.post-figure img {
+  max-width: 100%;
+  border-radius: 0.25rem;
+}
+.post-figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #868e96;
+}
+.post-figure figcaption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* Map */
 .map {
   height: 30rem;
@@ -56,6 +81,78 @@ h6 {
 }
 .map iframe {
   pointer-events: none;
+}
+
+.side-note {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: rgba(236, 184, 7, 0.15);
+  border-left: 0.25rem solid #ecb807;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+.side-note p:last-child {
+  margin-bottom: 0;
+}
+
+.side-note-title {
+<<<<<<< HEAD
+  display: block;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+>>>>>>> 98cc41c (WIP homelab post)
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  color: #495057;
+<<<<<<< HEAD
+=======
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style: none;
+}
+.side-note-title::-webkit-details-marker {
+  display: none;
+}
+.side-note-title::after {
+  content: "";
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-left: 0.6rem;
+  border-right: 0.125rem solid currentColor;
+  border-bottom: 0.125rem solid currentColor;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.15s ease;
+  transition: -webkit-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, -webkit-transform 0.15s ease;
+}
+
+details.side-note[open] > .side-note-title {
+  margin-bottom: 0.5rem;
+}
+details.side-note[open] > .side-note-title::after {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+>>>>>>> 98cc41c (WIP homelab post)
 }
 
 .scroll-to-top {
