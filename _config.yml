@@ -13,11 +13,13 @@ social:
     - https://github.com/JackHack96
     - https://gitlab.com/JackHack96
     - https://linkedin.com/in/matteo-iervasi
+    - https://orcid.org/0009-0004-9029-9479
+    - https://scholar.google.com/citations?user=2DQ1LC0AAAAJ
 
-# Research profiles shown above the publications list; uncomment to show them.
+# Research profiles shown in the social links and above the publications list.
 author_profiles:
-  # orcid: https://orcid.org/0000-0000-0000-0000
-  # scholar: https://scholar.google.com/citations?user=XXXXXXX
+  orcid: https://orcid.org/0009-0004-9029-9479
+  scholar: https://scholar.google.com/citations?user=2DQ1LC0AAAAJ
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
