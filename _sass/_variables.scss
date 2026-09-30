@@ -1,0 +1,63 @@
+// Variables
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+
+// Design tokens: every color on the site comes from these custom properties,
+// so dark mode only has to redefine them.
+:root {
+  color-scheme: light dark;
+
+  --primary: #1d809f;
+  --primary-strong: #155d74;
+  --secondary: #ecb807;
+  --accent: #3b5998;
+  --accent-glow: #4582ec;
+
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --surface: #f8f9fa;
+  --surface-strong: #eef1f4;
+  --text: #212529;
+  --text-heading: #1f2933;
+  --text-muted: #4a5568;
+  --text-subtle: #6c757d;
+  --border: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.08);
+
+  --overlay: rgba(52, 58, 64, 0.5);
+  --overlay-strong: #343a40;
+  --on-primary: #ffffff;
+  --masthead-text: #d3d3d3;
+}
+
+@mixin dark-tokens {
+  --primary: #3fb4d6;
+  --primary-strong: #7fd0e8;
+  --secondary: #f2c94c;
+  --accent: #7d9be0;
+  --accent-glow: #4582ec;
+
+  --bg: #16181c;
+  --bg-alt: #1c1f24;
+  --surface: #23272e;
+  --surface-strong: #2c313a;
+  --text: #dde1e6;
+  --text-heading: #f1f3f5;
+  --text-muted: #aeb6c2;
+  --text-subtle: #8a94a3;
+  --border: #353b45;
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  --overlay: rgba(0, 0, 0, 0.5);
+  --overlay-strong: #000000;
+  --on-primary: #0b1a20;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-tokens;
+  }
+}

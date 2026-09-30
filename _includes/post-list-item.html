@@ -1,0 +1,7 @@
+<article class="post-list-item">
+  <p class="post-list-date"><time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %-d, %Y" }}</time></p>
+  <h3 class="post-list-title"><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+  {% if include.post.excerpt %}
+  <p class="post-list-excerpt">{{ include.post.excerpt | strip_html | truncatewords: 40 }}</p>
+  {% endif %}
+</article>

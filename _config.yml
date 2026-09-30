@@ -1,8 +1,23 @@
 title: Matteo Iervasi
-description: Personal website of Matteo Iervasi
+description: Personal website of Matteo Iervasi, embedded systems engineer and Ph.D. student.
 author: Matteo Iervasi
 url: "https://matteoiervasi.it"
 baseurl: ""
+lang: en
+tagline: Embedded systems engineer
+
+# Structured data for jekyll-seo-tag
+social:
+  name: Matteo Iervasi
+  links:
+    - https://github.com/JackHack96
+    - https://gitlab.com/JackHack96
+    - https://linkedin.com/in/matteo-iervasi
+
+# Research profiles shown above the publications list; uncomment to show them.
+author_profiles:
+  # orcid: https://orcid.org/0000-0000-0000-0000
+  # scholar: https://scholar.google.com/citations?user=XXXXXXX
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
@@ -13,6 +28,11 @@ plugins:
   - jekyll-seo-tag
 
 defaults:
+  # Default social preview image (jekyll-seo-tag)
+  - scope:
+      path: ""
+    values:
+      image: /img/social-preview.jpg
   - scope:
       path: ""
       type: "posts"
@@ -29,8 +49,6 @@ exclude:
   - Gemfile.lock
   - .bundle-gems
   - .bundle
-  - gulpfile.js
   - node_modules
-  - scss
   - README.md
   - LICENSE

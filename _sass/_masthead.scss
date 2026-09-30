@@ -1,0 +1,55 @@
+.masthead {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 30rem;
+  padding: 8rem 0;
+  text-align: center;
+  color: var(--masthead-text);
+  background: linear-gradient(90deg, rgba(42, 42, 42, 0.9) 0%, rgba(42, 42, 42, 0.9) 100%), url('../img/bg-masthead.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    color: inherit;
+    font-size: 4rem;
+    margin: 0 0 0.25rem;
+    padding: 0;
+    line-height: 1.1;
+  }
+  .masthead-subtitle {
+    margin: 0 0 3rem;
+    font-size: 1.75rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+  @media (min-width: $bp-lg) {
+    min-height: 100vh;
+    h1 {
+      font-size: 5.5rem;
+    }
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  a {
+    display: inline-flex;
+    color: var(--primary);
+    transition: color 0.15s ease-in-out;
+    &:hover,
+    &:focus {
+      color: var(--primary-strong);
+    }
+  }
+  .icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}

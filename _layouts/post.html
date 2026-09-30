@@ -2,21 +2,41 @@
 layout: default
 ---
 
+{% assign words = content | number_of_words %}
+{% assign reading_minutes = words | divided_by: 200 | at_least: 1 %}
 <section class="content-section" id="post">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <article class="blog-post">
-          <h2 class="post-title">{{ page.title }}</h2>
-          <p class="post-meta text-muted">
-            {{ page.date | date: "%B %-d, %Y" }}
-          </p>
-          <div class="post-content">
-            {{ content }}
-          </div>
-        </article>
-        <p class="post-back"><a href="{{ '/blog/' | relative_url }}">&larr; Back to all posts</a></p>
+  <div class="container container-narrow">
+    <article class="blog-post">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta text-muted">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        &middot; {{ reading_minutes }} min read
+      </p>
+      {% if page.tags.size > 0 %}
+      <ul class="post-tags" aria-label="Tags">
+        {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      <div class="post-content">
+        {{ content }}
       </div>
-    </div>
+    </article>
+    {% if page.previous or page.next %}
+    <nav class="post-pager" aria-label="More posts">
+      {% if page.previous %}
+      <a class="post-pager-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="post-pager-label">&larr; Previous</span>
+        <span class="post-pager-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a class="post-pager-next" href="{{ page.next.url | relative_url }}">
+        <span class="post-pager-label">Next &rarr;</span>
+        <span class="post-pager-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </nav>
+    {% endif %}
+    <p class="post-back"><a href="{{ '/blog/' | relative_url }}">&larr; Back to all posts</a></p>
   </div>
 </section>

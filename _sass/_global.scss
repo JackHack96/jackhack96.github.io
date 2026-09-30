@@ -1,0 +1,280 @@
+// Base (replaces the parts of Bootstrap's reboot the site relied on)
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+body {
+  @include body-font;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+ul,
+ol,
+figure,
+blockquote,
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: var(--primary-strong);
+    text-decoration: underline;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Layout
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-narrow {
+  max-width: 800px;
+}
+
+// Content Section
+.content-section {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  &.bg-alt {
+    background: var(--bg-alt);
+  }
+  @media (max-width: $bp-md) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-heading);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+.text-muted {
+  color: var(--text-subtle);
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  background: var(--primary);
+  color: var(--on-primary);
+  transition: background-color 0.15s ease-in-out;
+  &:hover,
+  &:focus {
+    background: var(--primary-strong);
+    color: var(--on-primary);
+    text-decoration: none;
+  }
+}
+
+// About
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  @media (min-width: $bp-md) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.about-subheading {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.skills-list {
+  padding-left: 1.25rem;
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.about-photo {
+  border-radius: 0.25rem;
+}
+
+// Blog post body copy
+.post-content {
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+}
+
+// Figure with source caption
+.post-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    border-radius: 0.25rem;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Side note callout box
+.side-note {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: rgba(236, 184, 7, 0.15);
+  border-left: 0.25rem solid var(--secondary);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.5rem var(--shadow);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.side-note-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-left: 0.6rem;
+    border-right: 0.125rem solid currentColor;
+    border-bottom: 0.125rem solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease;
+  }
+}
+
+details.side-note[open] > .side-note-title {
+  margin-bottom: 0.5rem;
+
+  &::after {
+    transform: rotate(225deg);
+  }
+}

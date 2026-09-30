@@ -1,0 +1,21 @@
+footer.footer {
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  .social-links {
+    margin-bottom: 1.25rem;
+    .icon {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+  .footer-contact {
+    margin: 0 0 0.5rem;
+  }
+  .footer-copyright {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-subtle);
+  }
+}

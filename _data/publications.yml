@@ -1,3 +1,8 @@
+# Name as it appears in author lists; highlighted in bold on the homepage.
+me: "M. Iervasi"
+
+# Each item takes: year, title, authors, venue, link (DOI/URL), and optionally
+# pdf (path or URL to a preprint) and bibtex (a multi-line string using "|").
 items:
   - year: 2025
     title: "Cueing Technologies in Parkinson's Disease: A Systematic Review"
