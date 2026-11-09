@@ -173,6 +173,35 @@
     margin-left: 0;
     color: var(--text-muted);
   }
+  // Markdown tables: scroll sideways on narrow screens instead of overflowing the page
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  th,
+  td {
+    padding: 8px 14px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--text-heading);
+    background: var(--surface-strong);
+    border-bottom: 2px solid var(--accent);
+  }
+  tbody tr:nth-child(even) {
+    background: var(--surface);
+  }
+  td:first-child {
+    white-space: nowrap;
+    font-weight: 700;
+  }
 }
 
 .post-pager {
