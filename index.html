@@ -61,23 +61,8 @@ description: Embedded systems engineer and Ph.D. student at the University of St
   </div>
 </section>
 
-<!-- Latest posts -->
-{% if site.posts.size > 0 %}
-<section class="content-section" id="latest-posts">
-  <div class="container container-narrow">
-    <h2 class="section-heading">Latest posts</h2>
-    <div class="post-list">
-      {% for post in site.posts limit: 3 %}
-      {% include post-list-item.html post=post %}
-      {% endfor %}
-    </div>
-    <p class="section-footer"><a href="{{ '/blog/' | relative_url }}">All posts &rarr;</a></p>
-  </div>
-</section>
-{% endif %}
-
 <!-- Education -->
-<section class="content-section bg-alt" id="education">
+<section class="content-section" id="education">
   <div class="container">
     <h2 class="section-heading">Education &amp; Career</h2>
     <ul class="timeline" id="education-timeline">
@@ -102,6 +87,21 @@ description: Embedded systems engineer and Ph.D. student at the University of St
     </ul>
   </div>
 </section>
+
+<!-- Latest posts -->
+{% if site.posts.size > 0 %}
+<section class="content-section bg-alt" id="latest-posts">
+  <div class="container container-narrow">
+    <h2 class="section-heading">Latest posts</h2>
+    <div class="post-list">
+      {% for post in site.posts limit: 3 %}
+      {% include post-list-item.html post=post %}
+      {% endfor %}
+    </div>
+    <p class="section-footer"><a href="{{ '/blog/' | relative_url }}">All posts &rarr;</a></p>
+  </div>
+</section>
+{% endif %}
 
 <!-- Publications -->
 <section class="content-section" id="publications">
